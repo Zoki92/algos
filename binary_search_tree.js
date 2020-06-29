@@ -1,3 +1,4 @@
+
 class BST {
     constructor(value) {
         this.value = value;
@@ -30,6 +31,7 @@ class BST {
         return this;
     }
 
+
     contains(value) {
         let currentNode = this;
         while (currentNode != null) {
@@ -53,27 +55,35 @@ class BST {
                 parentNode = currentNode;
                 currentNode = currentNode.left;
             }
-            else if (value > currentNode.right) {
+            else if (value > currentNode.value) {
                 parentNode = currentNode;
                 currentNode = currentNode.right;
             }
             else {
+                // we are dealing with a node that has got 2 children
+                // in this case we want to get the min value in the right subtree
                 if (currentNode.left !== null && currentNode.right !== null) {
                     currentNode.value = currentNode.right.getMinValue();
                     currentNode.right.remove(currentNode.value, currentNode);
                 }
+                // coming back to the root node case
                 else if (parentNode === null) {
                     if (currentNode.left !== null) {
+                        // replacing currentNode value with
+                        // the values of the currentNode left node
                         currentNode.value = currentNode.left.value;
                         currentNode.right = currentNode.left.right;
                         currentNode.left = currentNode.left.left;
                     }
                     else if (currentNode.right !== null) {
+                        // replacing currentNode value with
+                        // the values of the currentNode right node
                         currentNode.value = currentNode.right.value;
                         currentNode.left = currentNode.right.left;
                         currentNode.right = currentNode.right.right;
                     }
                     else {
+                        // this is single-node tree; do nothing
                     }
                 }
                 else if (parentNode.left === currentNode) {
@@ -96,3 +106,4 @@ class BST {
         return currentNode.value;
     }
 }
+

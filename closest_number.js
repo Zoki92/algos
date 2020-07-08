@@ -8,3 +8,4 @@ function closestNumber(a, b, x) {
 }
 
 console.log(closestNumber(349, 1, 4));
+console.log(closestNumber(349, 1, 7));

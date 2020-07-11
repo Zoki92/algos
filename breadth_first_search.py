@@ -11,6 +11,7 @@ class Node:
 
 	# O(v + e) time | O(v) space
     def breadthFirstSearch(self, array):
+        # We can also use collections.deque and use queue.leftPop which is O(1)
         queue = [self]
         while len(queue) != 0:
             current = queue.pop(0)

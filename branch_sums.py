@@ -48,9 +48,21 @@ def calculate_branches_sum(current, branches_sum, current_sum):
     calculate_branches_sum(current.left, branches_sum, current_sum)
     calculate_branches_sum(current.right, branches_sum, current_sum)
         
+def calculate_sum_depths(root, depth=0):
+    if root is None:
+        return 0
+    return depth + calculate_sum_depths(root.left, depth + 1) + calculate_sum_depths(root.right, depth + 1)
     
-     
+
 
 tree = BinaryTree(1).insert([2, 3, 4, 5, 6, 7, 8, 9, 10])
 
-print(branch_sums(tree))
+# print(branch_sums(tree))
+print(calculate_sum_depths(tree))
+
+def invertBinaryTree(tree):
+    if tree is None:
+        return
+    tree.left, tree.right = tree.right, tree.left
+    invertBinaryTree(tree.left)
+    invertBinaryTree(tree.right)

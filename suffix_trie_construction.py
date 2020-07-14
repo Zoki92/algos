@@ -20,6 +20,7 @@ class SuffixTrie:
         node[self.endSymbol] = True
     
     # Time complexity: O(m) time | O(1) space
+    # m is the length of the stree we are searching for
     def contains(self, string):
         node = self.root
         for letter in string:

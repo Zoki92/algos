@@ -58,7 +58,7 @@ def calculate_sum_depths(root, depth=0):
 tree = BinaryTree(1).insert([2, 3, 4, 5, 6, 7, 8, 9, 10])
 
 # print(branch_sums(tree))
-print(calculate_sum_depths(tree))
+# print(calculate_sum_depths(tree))
 
 def invertBinaryTree(tree):
     if tree is None:
@@ -66,3 +66,42 @@ def invertBinaryTree(tree):
     tree.left, tree.right = tree.right, tree.left
     invertBinaryTree(tree.left)
     invertBinaryTree(tree.right)
+
+
+def maxPathSum1(tree):
+    current = tree.left
+    current_sum = 0
+    while current:
+        current_sum += current.value
+        if current.left and current.right:
+            if current.left.value > current.right.value:
+                current = current.left
+            else:
+                current = current.right
+        elif current.left:
+            current = current.left
+        else:
+            current = current.right
+    current_sum += tree.value
+    current = tree.right
+    while current:
+        current_sum += current.value
+        if current.left and current.right:
+            if current.left.value > current.right.value:
+                current = current.left
+            else:
+                current = current.right
+        elif current.left:
+            current = current.left
+        else:
+            current = current.right
+    return current_sum
+
+test1 = BinaryTree(1).insert([2, 3, 4, 5, 6, 7])
+
+
+
+
+
+
+print(maxPathSum(test1))

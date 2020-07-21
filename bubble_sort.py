@@ -23,10 +23,11 @@ Best time is O(n),
 Average O(n^2),
 Worst O (n^2)
 """
+from timer_decorator import timer
 
 
+@timer
 def bubbleSort2(array):
-
     counter = 0
     is_sorted = False
     while not is_sorted:
@@ -39,24 +40,6 @@ def bubbleSort2(array):
         counter += 1
     return array
 
-
-
-
-
-
-
-
-def bubleSort(array):
-    is_sorted = False
-    counter = 0
-    while not is_sorted:
-        is_sorted = True
-        for i in range(len(array) - 1 - counter):
-            if array[i] > array[i + 1]:
-                swap(i, i + 1, array)
-                is_sorted = False
-        counter += 1
-    return array
         
     
 def swap(first, second, array):

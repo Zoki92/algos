@@ -60,7 +60,8 @@ is smaller than ‘S’ again. This is needed as we intend to find the smallest 
 """
 
 # The outer for loop runs through every element in the arr and the inner while loop processes each element only once, therefor
-# the time complexity will be O(N + N) or O(N). Space complexity is O(1)
+# the time complexity will be O(N + N) or O(N). This means that the inner loop is not executed for every i hence the  N + N.
+# Space complexity is O(1)
 def smallest_subarray_with_given_sum_2(s: int, arr: List) -> int:
     window_start = 0
     minimum_subarray_length = math.inf

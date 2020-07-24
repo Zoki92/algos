@@ -42,7 +42,10 @@ def test_find_averages_of_subarrays(
 """Since for every element of the array we are calculating the sum of the next K elements
 the time complexity of this algorithm will be O(N*K) where N is the number of elements in the input array
 The inneficieny is that for any two consecutive subarrays of size 5, the overlapping part (which contains 4 elements)
-will be evaluated twice
+will be evaluated twice.
+The efficient way to solve this problem would be to visualize each contiguous subarray as a sliding window of ‘5’ elements. 
+This means that when we move on to the next subarray, we will slide the window by one element. So, to reuse the sum from the 
+previous subarray, we will subtract the element going out of the window and add the element now being included in the sliding window.
 """
 
 # Time complexity O(n)

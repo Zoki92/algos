@@ -75,8 +75,3 @@ def test_find_string_anagrams(
     # for item in expected:
     assert find_string_anagrams(input_str, pattern) == expected
 
-
-find_string_anagrams(
-    "ppqp", "pq",
-)
-

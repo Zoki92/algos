@@ -12,7 +12,9 @@ Explanation: There are two unique triplets whose sum is equal to zero.
 import pytest
 from typing import List
 
-
+# Sorting the array will take O(nlogn) time. The search pair will take O(n), and overall
+# our algorithm will take O(n^2) time.
+# The space complexity will be O(n) ignoring the space required for the output array.
 def search_triplets(array: List[int]) -> List[int]:
     arr = array[:]
     arr.sort()

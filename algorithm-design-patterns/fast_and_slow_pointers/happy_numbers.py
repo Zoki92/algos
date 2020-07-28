@@ -27,9 +27,20 @@ We saw in the LinkedList Cycle problem that we can use the Fast & Slow pointers 
 a set of elements. As we have described above, each number will definitely have a cycle. Therefore, we will 
 use the same fast & slow pointer strategy to find the cycle and once the cycle is found, we will see if the 
 cycle is stuck on number ‘1’ to find out if the number is happy or not.
+
+
+If the number N is less than or equal to 1000, then we reach the cycle or ‘1’ in at most 1001 steps.
+For N > 1000 suppose the number has ‘M’ digits and the next number is ‘N1’. 
+we know that the sum of the squares of the digits of ‘N’ is at most 9^2M or 81^M (this will happen when all digits of ‘N’ are ‘9’).
+This means:
+N1 < 81M
+As we know M = log(N+1)
+Therefore: N1 < 81∗log(N+1) => N1 = O(logN)
 """
 
-
+# If the number N is less than or equal to 1000, then we reach the cycle or ‘1’ in at most 1001 steps.
+# This concludes that the above algorithm will have a time complexity of O(logN)
+# The algorithm runs in constant space O(1)
 def find_happy_number(num: int) -> bool:
     slow, fast = num, num
     while True:

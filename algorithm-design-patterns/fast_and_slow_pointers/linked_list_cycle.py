@@ -45,5 +45,5 @@ def has_cycle(head):
         fast = fast.next.next
         slow = slow.next
         if slow == fast:
-        return True
+          return True
     return False

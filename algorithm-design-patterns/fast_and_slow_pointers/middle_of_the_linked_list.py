@@ -72,3 +72,12 @@ def main():
 
 
 main()
+
+
+text = """Dynamic and detail-oriented Python Developer with a knack for conceptualising and delivering elegant, user-friendly solutions effectively and efficiently. Possesses a track record of developing full-stack solutions armed with extensive understanding of front to back technologies and cross platform app development with Flutter."""
+
+count = 0
+for item in text.split():
+    count += 1
+
+print(count)

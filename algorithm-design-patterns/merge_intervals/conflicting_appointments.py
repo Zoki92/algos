@@ -56,6 +56,3 @@ def test_can_attend_all_appointments(
 ):
     # for item in expected:
     assert can_attend_all_appointments(arr) == expected
-
-
-can_attend_all_appointments([[1, 4], [2, 5], [7, 9]])

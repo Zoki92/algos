@@ -24,7 +24,6 @@ def find_all_duplicates(nums):
     for i in range(len(nums)):
         if nums[i] != i + 1:
             duplicateNumbers.append(nums[i])
-
     return duplicateNumbers
 
 

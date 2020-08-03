@@ -36,8 +36,6 @@ def swap(current, correct, nums):
     nums[current], nums[correct] = nums[correct], nums[current]
 
 
-cyclic_sort([3, 1, 5, 4, 2])
-
 test_data = [
     ([3, 1, 5, 4, 2], [1, 2, 3, 4, 5]),
     ([2, 6, 4, 3, 1, 5], [1, 2, 3, 4, 5, 6]),

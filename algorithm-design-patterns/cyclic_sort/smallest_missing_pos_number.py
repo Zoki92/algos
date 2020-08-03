@@ -13,7 +13,8 @@ Output: 4
 import pytest
 from typing import List
 
-
+# Time complexity O(n)
+# Space complexity O(1)
 def find_first_missing_positive(nums):
     i = 0
     n = len(nums)
@@ -28,8 +29,6 @@ def find_first_missing_positive(nums):
             return i + 1
     return -1
 
-
-find_first_missing_positive([-3, 1, 5, 4, 2])
 
 test_data = [
     ([-3, 1, 5, 4, 2], 3),

@@ -1,0 +1,28 @@
+XOR is a logical bitwise operator that returns 0 (false) if both bits are the same and returns 1 (true) otherwise.
+In other words, it only returns 1 if exactly one bit is set to 1 out of the two bits in comparison.
+
+A 	B 	A xor B
+0 	0 	   0
+0 	1 	   1
+1 	0 	   1
+1 	1 	   0
+
+It is surprising to know the approaches that the XOR operator enables us to solve certain problems. 
+
+Important properties of XOR to remember #
+
+Following are some important properties of XOR to remember:
+
+    Taking XOR of a number with itself returns 0, e.g.,
+        1 ^ 1 = 0
+        29 ^ 29 = 0
+
+    Taking XOR of a number with 0 returns the same number, e.g.,
+        1 ^ 0 = 1
+        31 ^ 0 = 31
+
+    XOR is Associative & Commutative, which means:
+        (a ^ b) ^ c = a ^ (b ^ c)
+        a ^ b = b ^ a
+
+In the following chapters, we will apply the XOR pattern to solve some interesting problems.

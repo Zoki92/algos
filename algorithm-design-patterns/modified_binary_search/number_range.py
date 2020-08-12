@@ -45,12 +45,16 @@ def binary_search(arr, key, find_max_index):
             start = mid + 1
         else:
             key_index = mid
+            print("HERE find_max_index: ", find_max_index)
+            print(key_index)
             if find_max_index:
                 start = mid + 1
             else:
                 end = mid - 1
     return key_index
 
+
+find_range([4, 6, 6, 6, 9], 6)
 
 test_data = [
     ([4, 6, 6, 6, 9], 6, [1, 3]),

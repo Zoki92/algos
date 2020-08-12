@@ -45,8 +45,6 @@ def binary_search(arr, key, find_max_index):
             start = mid + 1
         else:
             key_index = mid
-            print("HERE find_max_index: ", find_max_index)
-            print(key_index)
             if find_max_index:
                 start = mid + 1
             else:

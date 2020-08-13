@@ -39,6 +39,9 @@ def find_sum_of_elements(nums, k1, k2):
 # We can iterate the array and use a max-heap to keep track of the top K2 numbers.
 # We can, then, add the top K2-K1-1 numbers in the max-heap to find the sum of all
 # numbers coming between the K1’th and K2’th smallest numbers.
+# Since we need to put only the top K2 numbers in the max-heap at any time,
+# the time complexity of the above algorithm will be O(N*logK2).
+# The space complexity will be O(K2)O(K2)O(K2), as we need to store the smallest ‘K2’ numbers in the heap.
 def find_sum_of_elements_alternate(nums, k1, k2):
     max_heap = []
     for i in range(len(nums)):

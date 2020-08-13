@@ -31,7 +31,9 @@ from typing import List
 from heapq import *
 from collections import deque
 
-
+# The time complexity of the above algorithm is O(N*logN) where ‘N’ is
+# the number of characters in the input string.
+# The space complexity will be O(N), as in the worst case, we need to store all the ‘N’ characters in the HashMap.
 def reorganize_string(str, k):
     if k <= 1:
         return str

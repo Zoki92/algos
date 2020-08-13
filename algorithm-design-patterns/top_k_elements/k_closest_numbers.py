@@ -21,20 +21,55 @@ Output: [5, 6, 9]
 import pytest
 from typing import List
 from heapq import *
+from collections import deque
 
-
+# The time complexity of the above algorithm is O(logN + K*logK).
+# We need O(logN) for Binary Search and O(K*logK) to insert
+# the numbers in the Min Heap, as well as to sort the output array.
 def find_closest_elements(arr: List[int], K: int, X: int) -> List[int]:
     index = binary_search(arr, X)
     low, high = index - K, index + K
-    low = max(low, 0)
-    high = min(high, len(arr) - 1)
+    low = max(low, 0)  # should not be less than 0
+    high = min(high, len(arr) - 1)  # should not be higher than the size of the array
     min_heap = []
+    # add all candidate elements to the min heap, sorted by their absolute difference from X
     for i in range(low, high + 1):
         heappush(min_heap, (abs(arr[i] - X), arr[i]))
     result = []
+    # we need the top K elements having smallest difference from X
     for _ in range(K):
         result.append(heappop(min_heap)[1])
     return result
+
+
+# two pointers version
+# The time complexity of the above algorithm is O(logN + K).
+# We need O(logN) for Binary Search and O(K)O(K)O(K) for finding the ‘K’ closest numbers using the two pointers.
+# If we ignoring the space required for the output list, the algorithm runs in constant space O(1).
+def find_closest_elements_tpv(arr, K, X):
+    result = deque()
+    index = binary_search(arr, X)
+    left_pointer, right_pointer = index, index + 1
+
+    n = len(arr)
+    for i in range(K):
+        if left_pointer >= 0 and right_pointer < n:
+            print("left pointer: ", left_pointer)
+            diff1 = abs(X - arr[left_pointer])
+            diff2 = abs(X - arr[right_pointer])
+            if diff1 <= diff2:
+                result.appendleft(arr[left_pointer])
+                left_pointer -= 1
+            else:
+                result.append(arr[right_pointer])
+                right_pointer += 1
+        elif left_pointer >= 0:
+            result.appendleft(arr[left_pointer])
+            left_pointer -= 1
+        elif left_pointer < n:
+            result.append(arr[right_pointer])
+            right_pointer += 1
+    return list(result)
 
 
 def binary_search(arr, target):
@@ -64,3 +99,8 @@ test_data = [
 @pytest.mark.parametrize("arr, k, x, expected", test_data)
 def test_find_closest_elements(arr, k, x, expected):
     assert find_closest_elements(arr, k, x).sort() == expected.sort()
+
+
+@pytest.mark.parametrize("arr, k, x, expected", test_data)
+def test_find_closest_elements_tpv(arr, k, x, expected):
+    assert find_closest_elements_tpv(arr, k, x).sort() == expected.sort()

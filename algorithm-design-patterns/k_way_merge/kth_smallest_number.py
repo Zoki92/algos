@@ -52,3 +52,19 @@ test_data = [
 @pytest.mark.parametrize("lists, k, expected", test_data)
 def test_find_Kth_smallest(lists, k, expected):
     assert find_Kth_smallest(lists, k) == expected
+
+
+"""
+Similar Problems #
+
+Problem 1: Given ‘M’ sorted arrays, find the median number among all arrays.
+
+Solution: This problem is similar to our parent problem with K=Median. So if there are ‘N’
+total numbers in all the arrays we need to find the K’th minimum number where K=N/2.
+
+Problem 2: Given a list of ‘K’ sorted arrays, merge them into one sorted list.
+
+Solution: This problem is similar to Merge K Sorted Lists except that the input is a list of arrays
+compared to LinkedLists. To handle this, we can use a similar approach as discussed in our parent
+problem by keeping a track of the array and the element indices.
+"""

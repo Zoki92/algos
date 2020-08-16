@@ -64,7 +64,10 @@ new sources, so we will repeat the above process until all vertices are visited.
 from collections import deque
 import pytest
 
-
+# In step ‘d’, each vertex will become a source only once and each edge will be accessed and removed once.
+# Therefore, the time complexity of the above algorithm will be O(V+E), where ‘V’ is the total number of vertices
+# and ‘E’ is the total number of edges in the graph.
+# The space complexity will be O(V+E), since we are storing all of the edges for each vertex in an adjacency list.
 def topological_sort(vertices, edges):
     sorted_order = []
     if vertices <= 0:

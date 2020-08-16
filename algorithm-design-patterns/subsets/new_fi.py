@@ -527,24 +527,24 @@ a digital clock 00:00, latest 23:59
 """
 
 
-import itertools
+# import itertools
 
 
-def solution(A, B, C, D):
-    A = [A, B, C, D]
-    return num_possible(A)
+# def solution(A, B, C, D):
+#     A = [A, B, C, D]
+#     return num_possible(A)
 
 
-def num_possible(A):
-    unique = set()
-    print(itertools.permutations(A))
-    for h1, h2, m1, m2 in itertools.permutations(A):
-        if 0 <= 10 * h1 + h2 < 24 and 0 <= 10 * m1 + m2 < 60:
-            unique.add((h1, h2, m1, m2))
-    return len(unique)
+# def num_possible(A):
+#     unique = set()
+#     print(itertools.permutations(A))
+#     for h1, h2, m1, m2 in itertools.permutations(A):
+#         if 0 <= 10 * h1 + h2 < 24 and 0 <= 10 * m1 + m2 < 60:
+#             unique.add((h1, h2, m1, m2))
+#     return len(unique)
 
 
-print(solution(0, 0, 0, 0))
+# print(solution(0, 0, 0, 0))
 
 
 # import heapq
@@ -575,3 +575,24 @@ print(solution(0, 0, 0, 0))
 
 
 # print(solution(100000000))
+
+
+def print_max(N):
+    count = [0 for _ in range(10)]
+    string = str(N)
+    for i in range(len(string)):
+        count[int(string[i])] = count[int(string[i])] + 1
+
+    result = 0
+    multiplier = 1
+
+    for i in range(10):
+        while count[i] > 0:
+            result = result + (i * multiplier)
+            count[i] -= 1
+            multiplier *= 10
+
+    return result
+
+
+print(print_max(552))

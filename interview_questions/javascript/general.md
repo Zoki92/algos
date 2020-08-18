@@ -351,8 +351,7 @@ tick. Note, though, that this is not immediate; the function is not executed unt
 above example, the call to console.log(4) occurs before the call to console.log(3) (since the call to console.log(3) 
 is invoked via setTimeout, so it is slightly delayed).
 
-## 10.Write a simple function (less than 160 characters) that returns a boolean indicating whether or not a 
-## string is a palindrome.
+## 10.Write a simple function (less than 160 characters) that returns a boolean indicating whether or not a string is a palindrome.
 
 ```javascript
 function isPalindrome(string) {
@@ -541,8 +540,7 @@ Example 6: "A" - "B" + 2 Outputs: NaN Explanation: As exlained in the previous e
  operator applied to NaN with any other numeric operand will still yield NaN.
 
 
-## 16. The following recursive code will cause a stack overflow if the array list is too large. How can you fix 
-## this and still retain the recursive pattern?
+## 16. The following recursive code will cause a stack overflow if the array list is too large. How can you fix this and still retain the recursive pattern?
 ```javascript
 var list = readHugeList();
 
@@ -755,14 +753,10 @@ One way to fix the stoleSecretIdentity() function is as follows:
 
 var stoleSecretIdentity = hero.getSecretIdentity.bind(hero);
 
-## 25. Create a function that, given a DOM Element on the page, will visit the element itself and all of its 
-## descendents (not just its immediate children). For each element visited, the function should pass that element
-## to a provided callback function.
-
-## The arguments to the function should be:
-##
-##   a DOM element
-##   a callback function (that takes a DOM element as its argument)
+## 25. Create a function that, given a DOM Element on the page, will visit the element itself and all of its descendents (not just its immediate children). For each element visited, the function should pass that element to a provided callback function.
+### The arguments to the function should be:
+### a DOM element
+### a callback function (that takes a DOM element as its argument)
 
 
 ```javascript
@@ -801,8 +795,8 @@ Output:
 Why isn’t it 10 and 5?
 
 In the first place, as fn is passed as a parameter to the function method, the scope (this) of the function fn
- is window. var length = 10; is declared at the window level. It also can be accessed as window.length or length 
- or this.length (when this === window.)
+is window. var length = 10; is declared at the window level. It also can be accessed as window.length or length 
+or this.length (when this === window.)
 
 method is bound to Object obj, and obj.method is called with parameters fn and 1. Though method is accepting only 
 one parameter, while invoking it has passed two parameters; the first is a function callback and other is just a number.
@@ -1195,8 +1189,7 @@ function Entity(id, name) {
 var o = new Entity(42, "John")
 ```
 
-## 41 Is there ever any practical difference between defining a function as a function expression 
-## (e.g., var foo = function(){}) or as a function statement (e.g., function foo(){})? Explain your answer.
+## 41 Is there ever any practical difference between defining a function as a function expression (e.g., var foo = function(){}) or as a function statement (e.g., function foo(){})? Explain your answer.
 When a function statement (e.g., function foo(){}) is used, the function foo may be referenced before it has 
 been defined, through a technique known as “hoisting”. A ramification of hoisting is that the last definition 
 of the function is the one that will be employed, regardless of when it is referenced (if that’s not clear, 

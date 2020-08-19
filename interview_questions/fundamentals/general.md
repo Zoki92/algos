@@ -335,7 +335,7 @@ optimise performance and security.
 #### DNS converts domain names to computer-usable identification numbers.
 #### HTTP messages govern the requests and responses between web browsers and web servers.
 #### HTTP is stateless, but cookies can be used to remember a computer from one request to another.
-#### ontent-type HTTP header fields tell the browser what type of content is being sent.
+#### Content-type HTTP header fields tell the browser what type of content is being sent.
 #### Character encoding headers tell the browser how to understand text files.
 #### UTF-8 is the most practical character encoding for the web.
 #### Web browsers convert HTML into a document object model (DOM) tree in memory.

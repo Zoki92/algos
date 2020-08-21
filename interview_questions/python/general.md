@@ -246,6 +246,17 @@ d['florp'] = 127
 
 Actually, the code shown will work with the standard dictionary object in python 2 or 3—that is normal behavior. Subclassing dict is unnecessary. However, the subclass still won’t work with the code shown because **missing** returns a value but does not change the dict itself:
 
+```python
+d = DefaultDict()
+print d
+{}
+print d['foo']
+[]
+print d
+{}
+
+```
+
 So it will “work,” in the sense that it won’t produce any error, but doesn’t do what it seems to be intended to do.
 
 Here is a **missing**-based method that will update the dictionary, as well as return a value:
@@ -257,4 +268,67 @@ class DefaultDict(dict):
         self[key] = newval
         return newval
 
+```
+
+## 9. How would you unit-test the following code?
+
+```python
+async def logs(cont, name):
+    conn = aiohttp.UnixConnector(path="/var/run/docker.sock")
+    async with aiohttp.ClientSession(connector=conn) as session:
+        async with session.get(f"http://xx/containers/{cont}/logs?follow=1&stdout=1") as resp:
+            async for line in resp.content:
+                print(name, line)
+```
+
+A good answer would suggest a specific async mock library and async test case approach, including an ephemeral event loop that’s guaranteed to terminate (i.e. with a max number of steps before timeout.)
+
+A great answer would point out that synchronisation problems are fundamentally the same in synchronous and asynchronous code, the difference being preemption granularity.
+
+A beautiful answer would take into account that the above code only has one flow (easy) compared to some other code where flows are mixed (e.g. merging two streams into one, sorting, etc). For example, consider following upgrade to the given code:
+
+```python
+keep_running = True
+
+async def logs(cont, name):
+    conn = aiohttp.UnixConnector(path="/var/run/docker.sock")
+    async with aiohttp.ClientSession(connector=conn) as session:
+        async with session.get(f"http://xx/containers/{cont}/logs?follow=1&stdout=1") as resp:
+            async for line in resp.content:
+                if not keep_running:
+                    break
+                print(name, line)
+```
+
+Here, any of the async statements could have a side-effect of changing the global keep_running.
+
+## 10. How do you list the functions in a module?
+
+Use the dir() method to list the functions in a module.
+
+For example:
+
+```python
+import some_module
+print dir(some_module)
+```
+
+## 11. Write a function that prints the least integer that is not present in a given list and cannot be represented by the summation of the sub-elements of the list.
+
+E.g. For a = [1,2,5,7] the least integer not represented by the list or a slice of the list is 4, and if a = [1,2,2,5,7] then the least non-representable integer is 18.
+
+```python
+import  itertools
+sum_list = []
+stuff = [1, 2, 5, 7]
+for L in range(0, len(stuff)+1):
+    for subset in itertools.combinations(stuff, L):
+        sum_list.append(sum(subset))
+
+new_list = list(set(sum_list))
+new_list.sort()
+for each in range(0,new_list[-1]+2):
+    if each not in new_list:
+        print(each)
+        break
 ```

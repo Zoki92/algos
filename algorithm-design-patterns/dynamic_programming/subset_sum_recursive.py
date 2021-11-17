@@ -11,6 +11,9 @@ def subset_sum(numbers: List[int], sum: int) -> bool:
     create a new set which includes number i if it doesn't exceed S and recursively process the remaining numbers
     create a new set without the number i and recursively process the remaining numbers
     return true if any of the above two sets had a sum equal to S otherwise return false
+
+    The time complexity of this algorithm is O(2^n) where n is the total number
+    The space complexity is O(n) which will be used to store the recursion stack
     """
     result = False
     if len(numbers) == 1 and numbers[0] == sum:

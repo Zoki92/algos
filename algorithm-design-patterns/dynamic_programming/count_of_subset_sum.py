@@ -2,6 +2,21 @@ import pytest
 
 
 def count_of_subset_sum(num, s):
+    """
+    Given a set of positive numbers, find the total number of subsets whose sum is equal to a given number S
+
+    A basic brute force solution is to try all subsets of the given numbers to count the subsets that have
+    a sum equal to S.
+
+    for each number 'i'
+    create a new set which includes number 'i' if it does not exceed 'S', and recursively
+        process the remaining numbers and sum
+    create a new set without number 'i', and recursively process the remaining numbers
+    return the count of subsets who has a sum equal to 'S'
+
+    The time complexity is O(2^n) where n is the total number
+    The space complexity is O(N) where n is the count of method calls on the stack
+    """
     return recursion_helper(num, s, 0)
 
 
